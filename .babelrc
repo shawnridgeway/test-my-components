@@ -3,5 +3,5 @@
     ["@babel/preset-react", {
       "modules": false
     }]
-  ],
+  ]
 }

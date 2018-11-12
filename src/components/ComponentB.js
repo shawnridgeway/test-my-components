@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
-import style from './ComponentB.scss';
+import style from './ComponentB.css';
 
 class ComponentB extends Component {
 	render() {

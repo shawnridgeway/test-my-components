@@ -66,10 +66,14 @@
 	}());
 	});
 
+	var style = {
+	    "root": "mc9de166f0_root"
+	};
+
 	class ComponentB extends React.Component {
 	  render() {
 	    return React__default.createElement("div", {
-	      className: classnames(undefined.root)
+	      className: classnames(style.root)
 	    }, "Hello World 2!");
 	  }
 

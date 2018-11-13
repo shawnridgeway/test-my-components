@@ -34,7 +34,7 @@ export default {
     resolve(),
     postcss({
       modules: true,
-      extract: 'dist/styles.css',
+      styleExport: true,
     }),
     commonjs({
       include: 'node_modules/**',

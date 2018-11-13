@@ -6,17 +6,29 @@ import postcss from 'rollup-plugin-postcss';
 
 export default {
   input: "./src/entry.js",
-  output: {
-    file: "index.js",
-    dir: "dist",
-    format: "esm",
-    name: "my-components",
-    globals: {
-      "react": "React",
-      "react-dom": "ReactDOM",
-      "classnames": "cx"
+  output: [
+    {
+      file: "index.esm.js",
+      dir: "dist",
+      format: "esm",
+      name: "my-components",
+      globals: {
+        "react": "React",
+        "react-dom": "ReactDOM",
+        "classnames": "cx"
+      }
+    }, {
+      file: "index.cjs.js",
+      dir: "dist",
+      format: "cjs",
+      name: "my-components",
+      globals: {
+        "react": "React",
+        "react-dom": "ReactDOM",
+        "classnames": "cx"
+      }
     }
-  },
+  ],
   external: [ "react", "react-dom", "classnames" ],
   plugins: [
     resolve(),

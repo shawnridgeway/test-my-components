@@ -1,7 +1,2 @@
-import ComponentA from './components/ComponentA';
-import ComponentB from './components/ComponentB';
-
-export {
-	ComponentA, 
-	ComponentB
-}
+export ComponentA from './components/ComponentA';
+export ComponentB from './components/ComponentB';

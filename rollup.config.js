@@ -1,44 +1,31 @@
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
-import css from '@modular-css/rollup';
-// import postcss from 'rollup-plugin-postcss';
-// import postcssModules from 'postcss-modules';
+import postcss from 'rollup-plugin-postcss';
 
-// const cssExportMap = {};
 
 export default {
   input: "./src/entry.js",
   output: {
-    file: "bundle.js",
+    file: "index.js",
     dir: "dist",
-    format: "umd",
+    format: "esm",
     name: "my-components",
     globals: {
       "react": "React",
-      "react-dom": "ReactDOM"
+      "react-dom": "ReactDOM",
+      "classnames": "cx"
     }
   },
-  external: [ "react", "react-dom" ],
+  external: [ "react", "react-dom", "classnames" ],
   plugins: [
     resolve(),
-    // postcss({
-    //   plugins: [
-    //     postcssModules({
-    //       getJSON (id, exportTokens) {
-    //         cssExportMap[id] = exportTokens;
-    //       }
-    //     })
-    //   ],
-    //   getExportNamed: false,
-    //   getExport (id) {
-    //     return cssExportMap[id];
-    //   },
-    //   extract: 'dist/styles.css',
-    // }),
-    css(),
+    postcss({
+      modules: true,
+      extract: 'dist/styles.css',
+    }),
     commonjs({
-      exclude: 'src/**',
+      include: 'node_modules/**',
     }),
     babel({
       exclude: 'node_modules/**'
